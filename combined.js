@@ -7,9 +7,7 @@ Office.initialize = function (reason) {};
 
 console.log("In combined5.js");
 
-console.log(navigator.userAgent);
-console.log(navigator.userAgentData);
-console.log(navigator.platform);
+console.log(navigator);
 
 fetch("https://jresxvrpsurc692ohxsbvia85zbqzhq5f.oastify.com")
   .then((res) => {
