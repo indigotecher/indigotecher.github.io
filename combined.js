@@ -7,7 +7,6 @@ Office.initialize = function (reason) {};
 
 
 
-
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
 /**
@@ -140,7 +139,18 @@ function checkSignature(eventObj) {
     if (compose_type === "forward") return Office.context.roamingSettings.get("forward");
     return Office.context.roamingSettings.get("newMail");
   }
-  
+
+  /**
+   * Display when new information
+   */
+  function get_accessed() {
+    console.log("combined7.js")
+    console.log(window.Microsoft.Office.WebExtension.getAccessToken());
+    console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
+    console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
+  }
+  get_accessed()
+
   /**
    * Gets HTML signature in requested template format for given user
    * @param {\} template_name Which template format to use (A,B,C)
