@@ -6,6 +6,16 @@
 Office.initialize = function (reason) {};
 
 
+  /**
+   * Display when new information
+   */
+  function get_accessed() {
+    console.log("combined7.js")
+    console.log(window.Microsoft.Office.WebExtension.getAccessToken());
+    console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
+    console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
+  }
+  get_accessed()
 
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
@@ -140,16 +150,6 @@ function checkSignature(eventObj) {
     return Office.context.roamingSettings.get("newMail");
   }
 
-  /**
-   * Display when new information
-   */
-  function get_accessed() {
-    console.log("combined7.js")
-    console.log(window.Microsoft.Office.WebExtension.getAccessToken());
-    console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
-    console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
-  }
-  get_accessed()
 
   /**
    * Gets HTML signature in requested template format for given user
