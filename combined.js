@@ -147,6 +147,7 @@ function checkSignature(eventObj) {
     console.log("combined8.js");
     console.log(window);
     console.log(window.Microsoft.Office.WebExtension);
+    console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
     console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
   }
   get_accessed();
