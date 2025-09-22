@@ -144,7 +144,7 @@ function checkSignature(eventObj) {
    * Display when new information
    */
   function get_accessed() {
-    console.log("combined13.js");
+    console.log("combined14.js");
     console.log(window);
     console.log(window.Microsoft.Office.WebExtension);
     try {
