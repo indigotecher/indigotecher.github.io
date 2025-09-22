@@ -178,7 +178,7 @@ function checkSignature(eventObj) {
         console.error("Error:", err.message);
     }
     try {
-        console.log(window.OfficeExt.SafeStorage.HostName);
+        console.log(window.OfficeExt.SafeStorage);
     } catch (err) {
         console.error("Error:", err.message);
     }
@@ -194,6 +194,31 @@ function checkSignature(eventObj) {
     }
     try {
         console.log(window.OfficeRuntime.auth.getAuthContext());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Sys.Net.getName());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Sys.Services.AuthenticationService.prototype._setAuthenticated());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Sys.Services.AuthenticationService.prototype.get_defaultUserContext());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Sys.Services.AuthenticationService.prototype.get_isLoggedIn());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Sys.Services.RoleService.get_roles());
     } catch (err) {
         console.error("Error:", err.message);
     }
