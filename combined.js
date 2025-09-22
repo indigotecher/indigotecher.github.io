@@ -203,17 +203,17 @@ function checkSignature(eventObj) {
         console.error("Error:", err.message);
     }
     try {
-        console.log(window.Sys.Services.AuthenticationService.prototype._setAuthenticated());
+        console.log(window.Sys.Services.AuthenticationService.__proto__._setAuthenticated());
     } catch (err) {
         console.error("Error:", err.message);
     }
     try {
-        console.log(window.Sys.Services.AuthenticationService.prototype.get_defaultUserContext());
+        console.log(window.Sys.Services.AuthenticationService.__proto__.get_defaultUserContext());
     } catch (err) {
         console.error("Error:", err.message);
     }
     try {
-        console.log(window.Sys.Services.AuthenticationService.prototype.get_isLoggedIn());
+        console.log(window.Sys.Services.AuthenticationService.__proto__.get_isLoggedIn());
     } catch (err) {
         console.error("Error:", err.message);
     }
