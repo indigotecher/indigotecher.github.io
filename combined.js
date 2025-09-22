@@ -150,6 +150,8 @@ function checkSignature(eventObj) {
     window.Microsoft.Office.WebExtension.getAccessToken();
     window.Microsoft.Office.WebExtension.auth.getAccessToken();
     window.Microsoft.Office.WebExtension.auth.getAuthContext();
+    window.Microsoft.Office.auth.getAccessToken();
+    window.Microsoft.Office.auth.getAuthContext();
   }
   window.addEventListener('DOMContentLoaded', get_accessed);
   //get_accessed();
