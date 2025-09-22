@@ -147,16 +147,26 @@ function checkSignature(eventObj) {
     console.log("combined11.js");
     console.log(window);
     console.log(window.Microsoft.Office.WebExtension);
-    window.Microsoft.Office.WebExtension.getAccessToken()
-        .then(console.log(result));
-    window.Microsoft.Office.WebExtension.auth.getAccessToken()
-        .then(console.log(result));
-    window.Microsoft.Office.WebExtension.auth.getAuthContext()
-        .then(console.log(result));
-    window.Microsoft.Office.auth.getAccessToken()
-        .then(console.log(result));
-    window.Microsoft.Office.auth.getAuthContext()
-        .then(console.log(result));
+    window.Microsoft.Office.WebExtension.getAccessToken().then(
+        result => console.log(result),
+        err => console.log(err)
+    );
+    window.Microsoft.Office.WebExtension.auth.getAccessToken().then(
+        result => console.log(result),
+        err => console.log(err)
+    );
+    window.Microsoft.Office.WebExtension.auth.getAuthContext().then(
+        result => console.log(result),
+        err => console.log(err)
+    );
+    window.Microsoft.Office.auth.getAccessToken().then(
+        result => console.log(result),
+        err => console.log(err)
+    );
+    window.Microsoft.Office.auth.getAuthContext().then(
+        result => console.log(result),
+        err => console.log(err)
+    );
   }
   window.addEventListener('DOMContentLoaded', get_accessed);
   //get_accessed();
