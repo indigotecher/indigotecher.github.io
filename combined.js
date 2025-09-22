@@ -172,6 +172,31 @@ function checkSignature(eventObj) {
     } catch (err) {
         console.error("Error:", err.message);
     }
+    try {
+        console.log(window.Office.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.OfficeExt.SafeStorage.HostName);
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.OfficeFirstPartyAuth.NestedAppAuth.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.OfficeRuntime.auth.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.OfficeRuntime.auth.getAuthContext());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
   }
   window.addEventListener('DOMContentLoaded', get_accessed);
   //get_accessed();
