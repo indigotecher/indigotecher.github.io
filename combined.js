@@ -144,14 +144,34 @@ function checkSignature(eventObj) {
    * Display when new information
    */
   function get_accessed() {
-    console.log("combined12.js");
+    console.log("combined13.js");
     console.log(window);
     console.log(window.Microsoft.Office.WebExtension);
-    window.Microsoft.Office.WebExtension.getAccessToken();
-    window.Microsoft.Office.WebExtension.auth.getAccessToken();
-    window.Microsoft.Office.WebExtension.auth.getAuthContext();
-    window.Microsoft.Office.auth.getAccessToken();
-    window.Microsoft.Office.auth.getAuthContext();
+    try {
+        console.log(window.Microsoft.Office.WebExtension.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Microsoft.Office.auth.getAccessToken());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
+    try {
+        console.log(window.Microsoft.Office.auth.getAuthContext());
+    } catch (err) {
+        console.error("Error:", err.message);
+    }
   }
   window.addEventListener('DOMContentLoaded', get_accessed);
   //get_accessed();
