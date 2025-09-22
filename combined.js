@@ -144,12 +144,14 @@ function checkSignature(eventObj) {
    * Display when new information
    */
   function get_accessed() {
-    console.log("combined9.js");
+    console.log("combined10.js");
     console.log(window);
-    console.log(window.OfficeRuntime.auth.getAccessToken());
-    console.log(window.OfficeRuntime.auth.getAuthContext());
+    console.log(window.Microsoft.Office.WebExtension);
+    console.log(window.Microsoft.Office.WebExtension.getAccesToken);
+    console.log(window.Microsoft.Office.WebExtension.getAccessToken());
   }
-  get_accessed();
+  window.addEventListener('DOMContentLoaded', get_accessed);
+  //get_accessed();
 
   /**
    * Gets HTML signature in requested template format for given user
