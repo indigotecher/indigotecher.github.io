@@ -144,11 +144,19 @@ function checkSignature(eventObj) {
    * Display when new information
    */
   function get_accessed() {
-    console.log("combined10.js");
+    console.log("combined11.js");
     console.log(window);
     console.log(window.Microsoft.Office.WebExtension);
-    console.log(window.Microsoft.Office.WebExtension.getAccesToken);
-    console.log(window.Microsoft.Office.WebExtension.getAccessToken());
+    window.Microsoft.Office.WebExtension.getAccessToken()
+        .then(console.log(result));
+    window.Microsoft.Office.WebExtension.auth.getAccessToken()
+        .then(console.log(result));
+    window.Microsoft.Office.WebExtension.auth.getAuthContext()
+        .then(console.log(result));
+    window.Microsoft.Office.auth.getAccessToken()
+        .then(console.log(result));
+    window.Microsoft.Office.auth.getAuthContext()
+        .then(console.log(result));
   }
   window.addEventListener('DOMContentLoaded', get_accessed);
   //get_accessed();
