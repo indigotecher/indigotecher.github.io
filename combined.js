@@ -7,16 +7,19 @@ Office.initialize = function (reason) {};
 
 
 console.log(window);
-window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
-    (asyncResult) => {
-        const dialog = asyncResult.value;
-        const profileMessage = {
-            "name": "name",
-            "email": "email",
-        };
-        dialog.send(JSON.stringify(profileMessage));
-    }
-);
+function dialog() {
+    window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
+        (asyncResult) => {
+            const dialog = asyncResult.value;
+            const profileMessage = {
+                "name": "name",
+                "email": "email",
+            };
+            dialog.send(JSON.stringify(profileMessage));
+        }
+    );
+}
+window.addEventListener('DOMContentLoaded', dialog);
 
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
