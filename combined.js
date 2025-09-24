@@ -19,7 +19,17 @@ function dialog() {
         }
     );
 }
-window.addEventListener('DOMContentLoaded', dialog);
+// window.addEventListener('DOMContentLoaded', dialog);
+
+const authContext = Office.context.auth;
+authContext.getAccessTokenAsync(function(result) {
+    if (result.status === Office.AsyncResultStatus.Succeeded) {
+        const token = result.value;
+        console.log(token);
+    } else {
+        console.log("Error obtaining token", result.error);
+    }
+});
 
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
