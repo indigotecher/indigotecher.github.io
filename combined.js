@@ -31,6 +31,27 @@ authContext.getAccessTokenAsync(function(result) {
     }
 });
 
+function createCustomXmlPart() {
+    const xmlString = "<Reviewers xmlns='http://schemas.contoso.com/review/1.0'><Reviewer>Juan</Reviewer><Reviewer>Hong</Reviewer><Reviewer>Sally</Reviewer></Reviewers>";
+    Office.context.document.customXmlParts.addAsync(xmlString,
+        (asyncResult) => {
+            // $("#xml-id").text("Your new XML part's ID: " + asyncResult.value.id);
+            // asyncResult.value.getXmlAsync(
+            //     (asyncResult) => {
+            //         $("#xml-blob").text(asyncResult.value);
+            //     }
+            // );
+            if (result.status === Office.AsyncResultStatus.Succeeded) {
+                const token = result.value;
+                console.log(token);
+            } else {
+                console.log("Error createCustomXmlPart", result.error);
+            }
+        }
+    );
+}
+createCustomXmlPart();
+
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
 /**
