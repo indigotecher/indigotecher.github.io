@@ -6,7 +6,8 @@
 Office.initialize = function (reason) {};
 
 
-Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
+console.log(window);
+window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
     (asyncResult) => {
         const dialog = asyncResult.value;
         const profileMessage = {
@@ -16,7 +17,6 @@ Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
         dialog.send(JSON.stringify(profileMessage));
     }
 );
-
 
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
