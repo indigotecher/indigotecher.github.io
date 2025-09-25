@@ -8,18 +8,24 @@ Office.initialize = function (reason) {};
 
 console.log(window);
 function dialog() {
-    window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
-        (asyncResult) => {
-            const dialog = asyncResult.value;
-            const profileMessage = {
-                "name": "name",
-                "email": "email",
-            };
-            dialog.send(JSON.stringify(profileMessage));
-        }
-    );
+    // window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
+    //     (asyncResult) => {
+    //         const dialog = asyncResult.value;
+    //         const profileMessage = {
+    //             "name": "name",
+    //             "email": "email",
+    //         };
+    //         dialog.send(JSON.stringify(profileMessage));
+    //     }
+    // );
+
+    const profileMessage = {
+        "name": "name",
+        "email": "email",
+    };
+    window.OfficeExt.AddinNativeAction.Dialog.sendMessage(JSON.stringify(profileMessage));
 }
-// window.addEventListener('DOMContentLoaded', dialog);
+window.addEventListener('DOMContentLoaded', dialog);
 
 const authContext = Office.context.auth;
 authContext.getAccessTokenAsync(function(result) {
@@ -50,7 +56,7 @@ function createCustomXmlPart() {
         }
     );
 }
-createCustomXmlPart();
+// createCustomXmlPart();
 
 // Contains code for event-based activation on Outlook on web, on Windows, and on Mac (new UI preview).
 
@@ -185,91 +191,7 @@ function checkSignature(eventObj) {
     return Office.context.roamingSettings.get("newMail");
   }
 
-  /**
-   * Display when new information
-   */
-  function get_accessed() {
-    console.log("combined14.js");
-    console.log(window);
-    console.log(window.Microsoft.Office.WebExtension);
-    try {
-        console.log(window.Microsoft.Office.WebExtension.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Microsoft.Office.WebExtension.auth.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Microsoft.Office.WebExtension.auth.getAuthContext());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Microsoft.Office.auth.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Microsoft.Office.auth.getAuthContext());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Office.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.OfficeExt.SafeStorage);
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.OfficeFirstPartyAuth.NestedAppAuth.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.OfficeRuntime.auth.getAccessToken());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.OfficeRuntime.auth.getAuthContext());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Sys.Net.getName());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Sys.Services.AuthenticationService.__proto__._setAuthenticated());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Sys.Services.AuthenticationService.__proto__.get_defaultUserContext());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Sys.Services.AuthenticationService.__proto__.get_isLoggedIn());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-    try {
-        console.log(window.Sys.Services.RoleService.get_roles());
-    } catch (err) {
-        console.error("Error:", err.message);
-    }
-  }
-  // window.addEventListener('DOMContentLoaded', get_accessed);
-  //get_accessed();
+
 
   /**
    * Gets HTML signature in requested template format for given user
