@@ -22,7 +22,7 @@ function dialog() {
         }
     );
 }
-window.addEventListener('DOMContentLoaded', dialog);
+//window.addEventListener('DOMContentLoaded', dialog);
 
 
 function processMessage(arg) {
