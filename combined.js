@@ -7,8 +7,10 @@ Office.initialize = function (reason) {};
 
 
 console.log(window);
+
 function dialog() {
-    window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
+    console.log("dialog");
+    Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
         (asyncResult) => {
             const dialog = asyncResult.value;
             console.log("dialog", dialog);
@@ -29,8 +31,8 @@ function processMessage(arg) {
 }
 
 function dialogmsg() {
+    console.log("dialogmsg");
     window.OfficeExt.AddinNativeAction.Dialog.setHandlerAndShowDialogCallback(Office.EventType.DialogMessageReceived, processMessage);
-
     const profileMessage = {
         "name": "name",
         "email": "email",
