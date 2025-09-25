@@ -8,16 +8,28 @@ Office.initialize = function (reason) {};
 
 console.log(window);
 function dialog() {
-    // window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
-    //     (asyncResult) => {
-    //         const dialog = asyncResult.value;
-    //         const profileMessage = {
-    //             "name": "name",
-    //             "email": "email",
-    //         };
-    //         dialog.send(JSON.stringify(profileMessage));
-    //     }
-    // );
+    window.Office.context.ui.displayDialogAsync("myDialog.html", { height: 30, width: 20 },
+        (asyncResult) => {
+            const dialog = asyncResult.value;
+            console.log("dialog", dialog);
+            const profileMessage = {
+                "name": "name",
+                "email": "email",
+            };
+            dialog.sendMessage(JSON.stringify(profileMessage));
+        }
+    );
+}
+window.addEventListener('DOMContentLoaded', dialog);
+
+
+function processMessage(arg) {
+    const messageFromDialog = JSON.parse(arg.message);
+    console.log(messageFromDialog);
+}
+
+function dialogmsg() {
+    window.OfficeExt.AddinNativeAction.Dialog.setHandlerAndShowDialogCallback(Office.EventType.DialogMessageReceived, processMessage);
 
     const profileMessage = {
         "name": "name",
@@ -25,7 +37,9 @@ function dialog() {
     };
     window.OfficeExt.AddinNativeAction.Dialog.sendMessage(JSON.stringify(profileMessage));
 }
-window.addEventListener('DOMContentLoaded', dialog);
+window.addEventListener('DOMContentLoaded', dialogmsg);
+
+
 
 const authContext = Office.context.auth;
 authContext.getAccessTokenAsync(function(result) {
